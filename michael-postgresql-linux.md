@@ -37,7 +37,7 @@ psql
 Dans le shell `psql`, créez la base de données avec la commande suivante :
 
 ```sql
-CREATE DATABASE microdemoDb;
+CREATE DATABASE microDemo1;
 ```
 
 # 4. Créer un utilisateur
@@ -45,17 +45,17 @@ CREATE DATABASE microdemoDb;
 Pour créer un utilisateur, exécutez la commande suivante dans le shell `psql` :
 
 ```sql
-CREATE USER microdemoUser WITH ENCRYPTED PASSWORD 'yourpassword';
+CREATE USER hrgres WITH ENCRYPTED PASSWORD 'hrgres';
 ```
 
-Remplacez `yourpassword` par un mot de passe sécurisé.
+Remplacez `hrgres` par un mot de passe sécurisé.
 
 # 5. Accorder des privilèges à l'utilisateur
 
-Associez l'utilisateur `microdemoUser` à la base de données `microdemoDb` en lui accordant des privilèges :
+Associez l'utilisateur `hrgres` à la base de données `microDemo1` en lui accordant des privilèges :
 
 ```sql
-GRANT ALL PRIVILEGES ON DATABASE microdemoDb TO microdemoUser;
+GRANT ALL PRIVILEGES ON DATABASE microDemo1 TO hrgres;
 ```
 
 # 6. Quitter le shell `psql`
@@ -71,9 +71,9 @@ Pour quitter le shell PostgreSQL, tapez :
 Vous pouvez vérifier que tout fonctionne en vous reconnectant avec l'utilisateur nouvellement créé :
 
 ```bash
-psql -U microdemoUser -d microdemoDb
+psql -U hrgres -d microDemo1
 ```
 
-Cela vous demandera le mot de passe, et si tout fonctionne, vous serez connecté à la base de données `microdemoDb` en tant qu'utilisateur `microdemoUser`.
+Cela vous demandera le mot de passe, et si tout fonctionne, vous serez connecté à la base de données `microDemo1` en tant qu'utilisateur `hrgres`.
 
 
