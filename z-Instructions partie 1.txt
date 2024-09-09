@@ -1,0 +1,73 @@
+************************************************************************************
+**********1- CRÉATION DE L'UTILISATEUR ET DE LA BD microDemo1 ********************
+**********2- VÉRIFICATION DE application.properties ********************
+************************************************************************************
+
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/microDemo1
+spring.datasource.username=hrgres
+spring.datasource.password=hrgres
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+server.port=8080
+
+
+***********************************************************************************
+**********3- ÉXÉCUTION DE L'APPLICATION SANS IDE **********************************
+**********placez vous au niveau de l'emplacement de pom.xml************************
+***********************************************************************************
+***********************************************************************************
+
+***************************************
+3.1***si vous utilisez windows
+***************************************
+		mvn -version
+		mvn clean install 
+		(ou en cas d'erreurs) 	mvn clean package -DskipTests
+								mvn clean install -DskipTests
+		mvn spring-boot:run
+
+*************
+3.2***ou
+*************
+
+		mvnw.cmd clean install
+		mvnw.cmd -version
+		mvnw.cmd spring-boot:run
+		mvnw.cmd spring-boot:run -Dspring-boot.run.arguments="--debug"
+
+
+***************************************
+3.3***ou si shell ou github
+***************************************
+
+		./mvnw clean install
+		./mvnw -version
+		./mvnw spring-boot:run
+
+
+****************************************
+3.4***si erreur 
+****************************************
+
+		mvn clean package -DskipTests
+		mvn clean install package -DskipTests
+		mvn spring-boot:run -e
+
+
+
+**************************
+3.5***pour gradle windows 
+**************************
+
+		gradlew.bat clean build
+		gradlew.bat -version
+		gradlew.bat bootRun --info
+
+
+***********************************************************************************
+**********4- FIN DES INSTRCUTIONS PARTIE 1  **********************************
+***********************************************************************************
+***********************************************************************************

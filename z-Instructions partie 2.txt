@@ -1,0 +1,237 @@
+
+************************************************************************************
+**********1- DÉCOUVERTE DES ENDPOINTS DANS LE CONTROLLEUR***************************
+**********2- ALLEZ À AccountsController ********************************************
+**********3- COMPRÉHENSION DES ENDPOINTS ********************************************
+************************************************************************************
+
+Pour tester votre API Spring Boot à l'aide de Postman, 
+vous devez créer des requêtes correspondant aux différents endpoints définis dans votre contrôleur `AccountsController`. Voici comment vous pouvez procéder pour chaque endpoint :
+
+1. GET /myAccount/{id} : Récupérer les détails d'un compte spécifique
+   - Type de requête : GET
+   - URL : `http://localhost:8080/myAccount/123` (remplacez 123 par l'ID de compte réel)
+   - Pas de corps de requête nécessaire.
+
+2. GET /accounts : Récupérer tous les comptes
+   - Type de requête : GET
+   - URL : `http://localhost:8080/accounts`
+   - Pas de corps de requête nécessaire.
+
+3. POST /newAccount : Créer un nouveau compte
+   - Type de requête : POST
+   - URL : `http://localhost:8080/newAccount`
+   - Corps de requête : Fournissez les détails du compte sous forme JSON. Exemple :
+     
+     {
+       "customerId": "1",
+       "accountType": "Checking",
+       "branchAddress": "123 Main St",
+       "createDt": "2023-12-22"
+     }
+     
+
+4. PUT /update/{id} : Mettre à jour un compte existant
+   - Type de requête : PUT
+   - URL : `http://localhost:8080/update/123` (remplacez 123 par l'ID de compte réel)
+   - Corps de requête : Fournissez les détails mis à jour du compte sous forme JSON. Exemple :
+     
+     {
+       "customerId": "1",
+       "accountType": "Savings",
+       "branchAddress": "456 Main St",
+       "createDt": "2023-12-22"
+     }
+     
+
+5. DELETE /deleteAccount/{id} : Supprimer un compte
+   - Type de requête : DELETE
+   - URL : `http://localhost:8080/deleteAccount/123` (remplacez 123 par l'ID de compte réel)
+   - Pas de corps de requête nécessaire.
+
+Pour utiliser Postman :
+
+1. Lancez Postman.
+2. Choisissez le type de requête approprié (GET, POST, PUT, DELETE) dans la liste déroulante.
+3. Entrez l'URL de l'endpoint.
+4. Pour les requêtes POST et PUT, allez dans l'onglet 'Body', choisissez 'raw' et sélectionnez 'JSON' comme format. Entrez les détails du compte sous forme de JSON.
+5. Appuyez sur 'Send' pour envoyer la requête.
+
+Assurez-vous que votre application Spring Boot est en cours d'exécution sur votre serveur local lorsque vous testez avec Postman.
+
+
+************************************************************************************
+**********4- TESTEZ LES ENDPOINTS LES PLUS SIMPLES VIA LE NAVIGATEUR ET POSTMAN ****
+**********4- TESTEZ LES GET (SELECT) ***********************************************
+************************************************************************************
+
+OUVRIR LE NAVIGATEUR ET TESTEZ CETTE URL :
+http://localhost:8080/accounts
+
+====> C'EST VIDE
+
+************************************************************************************
+**********4- INSERTION (POST) DES CUSTOMERS (CLÉ SECONDAIRE DANS LA BD) ************************
+************************************************************************************
+
+4-1- Commençons par insérer 20 customers (clé secondaire)
+4-2- Allez à postgres -> schema -> tables -> customers -> clique droit -> scripts -> insert scripts 
+Insérez 20 clients 
+INSERT INTO public.customer (customer_id, create_dt, email, mobile_number, name)
+VALUES
+(1, '2023-01-01', 'email1@example.com', '1000000001', 'Name One'),
+(2, '2023-01-02', 'email2@example.com', '1000000002', 'Name Two'),
+(3, '2023-01-03', 'email3@example.com', '1000000003', 'Name Three'),
+(4, '2023-01-04', 'email4@example.com', '1000000004', 'Name Four'),
+(5, '2023-01-05', 'email5@example.com', '1000000005', 'Name Five'),
+(6, '2023-01-06', 'email6@example.com', '1000000006', 'Name Six'),
+(7, '2023-01-07', 'email7@example.com', '1000000007', 'Name Seven'),
+(8, '2023-01-08', 'email8@example.com', '1000000008', 'Name Eight'),
+(9, '2023-01-09', 'email9@example.com', '1000000009', 'Name Nine'),
+(10, '2023-01-10', 'email10@example.com', '1000000010', 'Name Ten'),
+(11, '2023-01-11', 'email11@example.com', '1000000011', 'Name Eleven'),
+(12, '2023-01-12', 'email12@example.com', '1000000012', 'Name Twelve'),
+(13, '2023-01-13', 'email13@example.com', '1000000013', 'Name Thirteen'),
+(14, '2023-01-14', 'email14@example.com', '1000000014', 'Name Fourteen'),
+(15, '2023-01-15', 'email15@example.com', '1000000015', 'Name Fifteen'),
+(16, '2023-01-16', 'email16@example.com', '1000000016', 'Name Sixteen'),
+(17, '2023-01-17', 'email17@example.com', '1000000017', 'Name Seventeen'),
+(18, '2023-01-18', 'email18@example.com', '1000000018', 'Name Eighteen'),
+(19, '2023-01-19', 'email19@example.com', '1000000019', 'Name Nineteen'),
+(20, '2023-01-20', 'email20@example.com', '1000000020', 'Name Twenty');
+
+select * from public.customer;
+
+
+************************************************************************************
+**********5- INSERTION (POST) D'UN PREMIER COMPTE (ACCOUNT) ************************
+************************************************************************************
+5-1 Allez à POSTMAN  
+CHOISIR POST -> URL : http://localhost:8080/newAccount -> Body -> raw -> JSON
+
+{
+    "accountNumber": 1,
+    "customerId": 3,
+    "accountType": "Checking",
+    "branchAddress": "123 Main St",
+    "createDt": "2023-01-02"
+  }
+
+5-2 Vérifiez l'insertion via l'URL http://localhost:8080/accounts
+  ou POSTMAN GET http://localhost:8080/accounts
+
+5-3 - Une autre insertion ?
+  CHOISIR POST -> URL : http://localhost:8080/newAccount -> Body -> raw -> JSON
+
+{
+    "accountNumber": 2,
+    "customerId": 4,
+    "accountType": "Savings",
+    "branchAddress": "456 Main St",
+    "createDt": "2023-01-03"
+  }
+
+5-4 Vérifiez l'insertion via l'URL http://localhost:8080/accounts
+  ou POSTMAN GET http://localhost:8080/accounts
+
+
+
+************************************************************************************
+**********6- METTRE À JOUR UN NOUVEAU COMPTE (PUT) DU PREMIER COMPTE (ACCOUNT) ************************
+************************************************************************************
+6-1- Je vérifie mon controlleur AccountsController
+@PutMapping("/update/{id}")
+
+6-2 JE VÉRIFIE MES DONNÉES AVEC UN GET http://localhost:8080/accounts
+6-3- JE CHOISIS DE METTRE À JOUR LE PREMIER /update/1 
+
+CHOISIR PUT -> URL : http://localhost:8080/update/1 -> Body -> raw -> JSON
+
+{
+    "accountNumber": 1,
+    "customerId": 3,
+    "accountType": "Savings",
+    "branchAddress": "123 Main St",
+    "createDt": "2024-01-02"
+  }
+
+  J'ai changé "accountType": "Savings" ET "createDt": "2024-01-02"
+
+  ANCIEN 
+  {
+    "accountNumber": 1,
+    "customerId": 3,
+    "accountType": "Checking",
+    "branchAddress": "123 Main St",
+    "createDt": "2023-01-02"
+  }
+  NOUVEAU CORPS
+  {
+    "accountNumber": 1,
+    "customerId": 3,
+    "accountType": "Savings",
+    "branchAddress": "123 Main St",
+    "createDt": "2024-01-02"
+  }
+
+  6-4 - VÉRIFICATION
+
+Vérifiez la mise à jour via l'URL http://localhost:8080/accounts
+ou POSTMAN GET http://localhost:8080/accounts
+
+ou vérifiez le compte par son ID 
+(DANS LE CONTROLLEUR) @GetMapping("/myAccount/{id}")
+http://localhost:8080/myAccount/1
+ou POSTMAN GET http://localhost:8080/myAccount/1
+ou CURL (LIGNE DE CMD ) curl http://localhost:8080/myAccount/1
+
+
+
+
+************************************************************************************
+**********7- SUPPRIMER D'UN COMPTE EXISTANT (DELETE), PAR EXEMPLE LE PREMIER COMPTE*
+************************************************************************************
+
+7-1- ALLEZ A POSTMAN
+7-2- CHOISIR DELETE -> URL : http://localhost:8080/deleteAccount/1 (PAS BESOIN DE BODY)
+7-3- JE VÉRIFIE 
+Vérifiez la suppression via l'URL http://localhost:8080/accounts
+  ou POSTMAN GET http://localhost:8080/accounts
+
+7-4- JE SUPPRIME LE DEUXIÈME 
+CHOISIR DELETE -> URL : http://localhost:8080/deleteAccount/2 (PAS BESOIN DE BODY)
+http://localhost:8080/deleteAccount/2
+
+7-5- JE VÉRIFIE 
+Vérifiez la suppression via l'URL http://localhost:8080/accounts
+  ou POSTMAN GET http://localhost:8080/accounts
+
+
+JE N'AI PLUS DE COMPTES
+
+
+************************************************************************************
+**********8- CONCLURE***************************************************************
+************************************************************************************
+
+1 - nous vérifions toujours les endpoints dans le controlleurs
+2 - Il faut toujours faire des get pour vérifier nos données 
+3 - On peut également vérifier au niveau de la base de données postgres
+4 - pour GET ET DELETE nous n'avons pas besoin de corps (body)
+5 - pour POST et PUT, nous avons besoin de spécifier un body    
+
+************************************************************************************
+**********9- PROCHAINS DÉFIS***************************************************************
+************************************************************************************
+1 - Documentation via swagger
+2 - Compréhesnion de la structure controlleur -­­> services -> repository -> BD
+3 - AccounID doit être auto-incremented 
+4 - Insertion par lots (batch) ou insertion multiple [{},{}.{}]
+
+
+@DeleteMapping("/deleteAccount/{id}")
+	@PutMapping("/update/{id}")
+   @PostMapping("/newAccount")
+   	@GetMapping("/accounts")
+      @GetMapping("/myAccount/{id}")
+      

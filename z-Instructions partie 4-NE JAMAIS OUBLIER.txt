@@ -1,0 +1,20 @@
+DANS LA CALSSE PRINCIPALE les annotations suivantes 
+(1) @SpringBootApplication
+(2) @ComponentScans
+(3) @EnableJpaRepositories
+(4) @EntityScan
+
+EXEMPLE ==>
+
+
+@SpringBootApplication
+@ComponentScans({ @ComponentScan("com.eazybytes.accounts.controller") })
+@EnableJpaRepositories("com.eazybytes.accounts.repository")
+@EntityScan("com.eazybytes.accounts.model")
+
+public class AccountsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AccountsApplication.class, args);
+	}
+}

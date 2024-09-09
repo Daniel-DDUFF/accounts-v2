@@ -1,0 +1,49 @@
+
+
+
+
+
+************************************************************************************
+**********1- Ajout dans POM.XML :  ****************************************************
+************************************************************************************
+
+<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.1.0</version>
+</dependency>
+
+
+
+******************************************************************************************************************************************************************
+**********2- Ajout des annotations dans le controlleur comme @Operation(summary = "get account by id")  **********************************************************
+******************************************************************************************************************************************************************
+DANS AccountsController
+
+===>@Operation(summary = "get account by id")
+	@GetMapping("/myAccount/{id}")
+	public Accounts getAccountDetails(@PathVariable("id") Long id) {
+		return accountsService.getAccountsById(id);
+	}
+
+===>@Operation(summary = "get all accounts")
+	@GetMapping("/accounts")
+	public List<Accounts> getAllAccounts(){
+		return accountsService.getAllAccounts();
+	}
+
+===>@Operation(summary = "create a new account")
+	@PostMapping("/newAccount")
+	public String newAccount(@RequestBody Accounts accounts){
+		return accountsService.save(accounts);
+
+************************************************************************************
+**********3- URL pour tester :  ****************************************************
+************************************************************************************
+
+
+http://localhost:8080/swagger-ui/index.html
+ou parfois
+http://localhost:8080/swagger-ui/
+
+

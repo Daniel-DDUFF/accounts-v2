@@ -1,0 +1,155 @@
+GET http://localhost:8080/accounts
+
+DELETE 
+	http://localhost:8080/deleteAccount/0
+	http://localhost:8080/deleteAccount/1
+	http://localhost:8080/deleteAccount/2
+	http://localhost:8080/deleteAccount/7
+
+
+GET http://localhost:8080/accounts
+
+PROCHAINE ÉTAPE - INSERTION MULTIPLE
+
+[
+  {
+    "accountNumber": 1,
+    "customerId": 3,
+    "accountType": "Checking",
+    "branchAddress": "123 Main St",
+    "createDt": "2023-01-02"
+  },
+  {
+    "accountNumber": 2,
+    "customerId": 4,
+    "accountType": "Savings",
+    "branchAddress": "456 Main St",
+    "createDt": "2023-01-03"
+  },
+  {
+    "accountNumber": 3,
+    "customerId": 5,
+    "accountType": "Checking",
+    "branchAddress": "789 Main St",
+    "createDt": "2023-01-04"
+  },
+  {
+    "accountNumber": 4,
+    "customerId": 6,
+    "accountType": "Savings",
+    "branchAddress": "101 Main St",
+    "createDt": "2023-01-05"
+  },
+  {
+    "accountNumber": 5,
+    "customerId": 7,
+    "accountType": "Checking",
+    "branchAddress": "202 Main St",
+    "createDt": "2023-01-06"
+  },
+  {
+    "accountNumber": 6,
+    "customerId": 8,
+    "accountType": "Savings",
+    "branchAddress": "303 Main St",
+    "createDt": "2023-01-07"
+  },
+  {
+    "accountNumber": 7,
+    "customerId": 9,
+    "accountType": "Checking",
+    "branchAddress": "404 Main St",
+    "createDt": "2023-01-08"
+  },
+  {
+    "accountNumber": 8,
+    "customerId": 10,
+    "accountType": "Savings",
+    "branchAddress": "505 Main St",
+    "createDt": "2023-01-09"
+  },
+  {
+    "accountNumber": 9,
+    "customerId": 11,
+    "accountType": "Checking",
+    "branchAddress": "606 Main St",
+    "createDt": "2023-01-10"
+  },
+  {
+    "accountNumber": 10,
+    "customerId": 12,
+    "accountType": "Savings",
+    "branchAddress": "707 Main St",
+    "createDt": "2023-01-11"
+  },
+  {
+    "accountNumber": 11,
+    "customerId": 13,
+    "accountType": "Checking",
+    "branchAddress": "808 Main St",
+    "createDt": "2023-01-12"
+  },
+  {
+    "accountNumber": 12,
+    "customerId": 14,
+    "accountType": "Savings",
+    "branchAddress": "909 Main St",
+    "createDt": "2023-01-13"
+  },
+  {
+    "accountNumber": 13,
+    "customerId": 15,
+    "accountType": "Checking",
+    "branchAddress": "1010 Main St",
+    "createDt": "2023-01-14"
+  },
+  {
+    "accountNumber": 14,
+    "customerId": 16,
+    "accountType": "Savings",
+    "branchAddress": "1111 Main St",
+    "createDt": "2023-01-15"
+  },
+  {
+    "accountNumber": 15,
+    "customerId": 17,
+    "accountType": "Checking",
+    "branchAddress": "1212 Main St",
+    "createDt": "2023-01-16"
+  },
+  {
+    "accountNumber": 16,
+    "customerId": 18,
+    "accountType": "Savings",
+    "branchAddress": "1313 Main St",
+    "createDt": "2023-01-17"
+  },
+  {
+    "accountNumber": 17,
+    "customerId": 19,
+    "accountType": "Checking",
+    "branchAddress": "1414 Main St",
+    "createDt": "2023-01-18"
+  },
+  {
+    "accountNumber": 18,
+    "customerId": 20,
+    "accountType": "Savings",
+    "branchAddress": "1515 Main St",
+    "createDt": "2023-01-19"
+  },
+  {
+    "accountNumber": 19,
+    "customerId": 21,
+    "accountType": "Checking",
+    "branchAddress": "1616 Main St",
+    "createDt": "2023-01-20"
+  },
+  {
+    "accountNumber": 20,
+    "customerId": 22,
+    "accountType": "Savings",
+    "branchAddress": "1717 Main St",
+    "createDt": "2023-01-21"
+  }
+]
