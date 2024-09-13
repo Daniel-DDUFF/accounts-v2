@@ -1,5 +1,0 @@
-2024-09-05T21:05:31.255-04:00  INFO 6788 --- [main] c.e.accounts.AccountsApplication         : Starting AccountsApplication using Java 17.0.6 with PID 6788 (C:\Users\Haythem\Desktop\RO\accounts-v1\target\classes started by Haythem in C:\Users\Haythem\Desktop\RO\accounts-v1)
-2024-09-05T21:05:31.256-04:00 DEBUG 6788 --- [main] c.e.accounts.AccountsApplication         : Running with Spring Boot v3.0.6, Spring v6.0.8
-2024-09-05T21:05:31.257-04:00  INFO 6788 --- [main] c.e.accounts.AccountsApplication         : No active profile set, falling back to 1 default profile: "default"
-2024-09-05T21:05:33.563-04:00  WARN 6788 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-09-05T21:05:33.805-04:00  INFO 6788 --- [main] c.e.accounts.AccountsApplication         : Started AccountsApplication in 2.818 seconds (process running for 3.047)

@@ -3,6 +3,7 @@ package com.eazybytes.accounts.service;
 import com.eazybytes.accounts.model.Accounts;
 import com.eazybytes.accounts.repository.AccountsRepository;
 import com.eazybytes.accounts.repository.CustomerRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,9 +12,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @Service
 public class AccountsService {
-
+    private static final Logger logger = LoggerFactory.getLogger(AccountsService.class);
     @Autowired
     AccountsRepository accountsRepository;
 
@@ -33,6 +36,7 @@ public class AccountsService {
     }
 
     public String save(Accounts accounts) {
+        logger.debug("Saving account: {}", accounts);
         int id = accounts.getCustomerId();
         if (customerRepository.existsById(id)) {
             accounts.setCreateDt(LocalDate.now());

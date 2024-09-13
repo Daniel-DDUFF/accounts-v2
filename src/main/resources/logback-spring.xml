@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="GENERAL_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>D:/HaifengDuan/WebTranscaction/accounts-v2/logs/app.general.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="WARN_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>D:/HaifengDuan/WebTranscaction/accounts-v2/logs/app.warn.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="ERROR_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>D:/HaifengDuan/WebTranscaction/accounts-v2/logs/app.error.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="GENERAL_LOG_FILE" />
+        <appender-ref ref="WARN_LOG_FILE" />
+        <appender-ref ref="ERROR_LOG_FILE" />
+    </root>
+
+
+</configuration>
