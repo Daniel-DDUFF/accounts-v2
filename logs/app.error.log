@@ -1,0 +1,1 @@
+2024-09-16 14:02:50 [http-nio-8081-exec-1] ERROR c.e.accounts.service.AccountsService - Critical error: unable to save account, customer ID not found: 110

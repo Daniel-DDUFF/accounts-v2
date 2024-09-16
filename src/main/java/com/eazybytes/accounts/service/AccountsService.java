@@ -43,6 +43,10 @@ public class AccountsService {
             accountsRepository.save(accounts);
             return "saved";
         } else {
+            logger.warn("Failed to save account, customer not found: {}", id);
+        
+            // 🔴 Ajoutez cette ligne ici pour signaler une erreur critique : impossible de sauvegarder car le client n'existe pas
+            logger.error("Critical error: unable to save account, customer ID not found: {}", id);
             return "failed, customer not found!";
         }
     }
